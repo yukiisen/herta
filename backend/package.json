@@ -1,0 +1,18 @@
+{
+  "name": "herta",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "serve": "bun run index.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "openai": "^4.93.0"
+  }
+}
