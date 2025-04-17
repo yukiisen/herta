@@ -38,7 +38,7 @@ export function Chat () {
 
         console.log(data);
 
-        setMessages(prev => [...prev, { role: data.role, content: data.content.message }]);
+        setMessages(prev => [...prev, { role: data.role, content: data.role == "assistant"? data.content.message: data.content }]);
     }
 
     useEffect(() => {
@@ -83,6 +83,7 @@ export function Chat () {
                                     <span className={`${shared} bg-accent`}>{ message.content }</span>
                                 </li>
                             )
+                            // command:
                             else return (
                                 <li key={ index } className={liStyles}>
                                     <img src={`/${image}.jpeg`} className={`${images} ${messages[index - 1].role !== 'user'? "invisible": "visible"}`} />
