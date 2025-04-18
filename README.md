@@ -3,15 +3,15 @@ Herta.. An AI powered chatbot that makes your life hell.
 Built with Bun, Openrouter and React (worst experience..)
 
 # Features:
-    - Message Relay System – Forwards messages from the user to selected friends via Discord DM.
-    - Realistic AI Persona – Mimics a fictional character (like Herta) with curated prompts to sound convincing.
-    - Typing Simulation – Uses Discord's typing indicator to feel more human.
-    - Manual Message Control – Only sends messages the user approves; no unsolicited AI replies.
-    - Command Execution – can execute whitelisted commands on your machine (just making sure no one runs `rm -rf /`).
-    - File opening – via xdg-open.
-    - App lunching – via user defined commands.
-    - OpenRouter Integration – Leverages OpenRouter to generate responses when needed.
-    - No Smart Features – Avoids advanced automation or data tracking by design.
+- Message Relay System – Forwards messages from the user to selected friends via Discord DM.
+- Realistic AI Persona – Mimics a fictional character (like Herta) with curated prompts to sound convincing.
+- Typing Simulation – Uses Discord's typing indicator to feel more human.
+- Manual Message Control – Only sends messages the user approves; no unsolicited AI replies.
+- Command Execution – can execute whitelisted commands on your machine (just making sure no one runs `rm -rf /`).
+- File opening – via xdg-open.
+- App lunching – via user defined commands.
+- OpenRouter Integration – Leverages OpenRouter to generate responses when needed.
+- No Smart Features – Avoids advanced automation or data tracking by design.
 
 # Requirements:
 Bun installed (build with bun's native features)
