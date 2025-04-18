@@ -5,18 +5,7 @@ import { ChatMessage } from "../server";
 
 type UserData = Record<string, { id: string, name: string, timedout: boolean }>
 
-const UserData: UserData = {
-    "yukiisen": {
-        id: "1187828042098290894",
-        name: "Yuki",
-        timedout: false,
-    },
-    "pi66": {
-        id: "1050377900685279252",
-        name: "Pixel",
-        timedout: false,
-    }
-}
+const UserData: UserData = {}
 
 export const client = new Client({ 
     intents: 
