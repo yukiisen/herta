@@ -67,10 +67,8 @@ The user may refer to commands or people casually (e.g. “tell Pixel to call me
         content: `
 The user will refer to their friends using nicknames. Map these nicknames to their actual Discord usernames as follows:
 
-"Pixel" => "pi66"
-"Kuro" => "kuro.mi_13"
-"yuka" => "yukiisen"
-"clino" => "clinomania8568"
+"Name1 you usually call" => "username"
+"Name2 you usually call" => "kuro"
 
 Whenever the user tells you to send a message to one of them, use the "discord.dm" field with the correct mapped username and message content.
 
