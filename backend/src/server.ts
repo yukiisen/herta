@@ -6,10 +6,10 @@ import { openApp, openFile, executeCommand } from "./modules/shell";
 
 import { system, openai, config } from "./config";
 
-import { client } from "./modules/discord";
+import { client, sendDm } from "./modules/discord";
 
 type UserReq = { type: 'message', content: { role: 'user', content: string } };
-type ChatMessage = OpenAI.Chat.Completions.ChatCompletionMessageParam;
+export type ChatMessage = OpenAI.Chat.Completions.ChatCompletionMessageParam;
 
 const history = new DataStore<{ messages: OpenAI.Chat.Completions.ChatCompletionMessageParam[] }>('history.json');
 
@@ -46,6 +46,7 @@ export default async function handleClientMessage (client: ServerWebSocket<unkno
 
         if (!!message.app) openApp(message.app);
         if (!!message.file) openFile(message.file);
+        if (message["discord.dm"].username && message["discord.dm"].message) sendDm(message["discord.dm"]);
     } else {
         client.send("Invalid input!");
     }

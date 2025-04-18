@@ -69,7 +69,7 @@ The user will refer to their friends using nicknames. Map these nicknames to the
 
 "Pixel" => "pi66"
 "Kuro" => "kuro.mi_13"
-"yuki" => "yukiisen"
+"yuka" => "yukiisen"
 "clino" => "clinomania8568"
 
 Whenever the user tells you to send a message to one of them, use the "discord.dm" field with the correct mapped username and message content.
