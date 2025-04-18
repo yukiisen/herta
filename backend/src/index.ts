@@ -1,4 +1,5 @@
-import handleClientMessage from "./src/server";
+import {getGithubImageUrl} from "./config";
+import handleClientMessage from "./server";
 
 Bun.serve({
     port: 8080,
@@ -16,6 +17,13 @@ Bun.serve({
                 },
             });
         }
+
+        if (req.method === "GET" && URL.parse(req.url)?.pathname == "/username") return new Response(getGithubImageUrl(), { status: 200, headers: {
+            "Access-Control-Allow-Origin": origin,
+            "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+            "Access-Control-Allow-Headers": "Content-Type, Authorization",
+            "Access-Control-Allow-Credentials": "true",
+        }})
 
         if (server.upgrade(req)) return new Response("Success", { status: 200 });
         else return new Response("Failed", { status: 400 });

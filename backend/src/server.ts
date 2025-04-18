@@ -1,4 +1,4 @@
-import { ServerWebSocket, stdout } from "bun";
+import { ServerWebSocket } from "bun";
 import DataStore from "./store";
 import OpenAI from "openai";
 

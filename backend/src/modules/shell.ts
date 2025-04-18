@@ -4,7 +4,7 @@ export async function openFile (filepath: string) {
     if (!exists) return;
 
     const process = Bun.spawn({
-        cwd: "/home/yuki/",
+        cwd: import.meta.env.HOME,
         cmd: ["xdg-open", filepath],
         stdout: null,
         stderr: null,
@@ -29,7 +29,7 @@ export async function openApp (app: string) {
     if (!cmd) return;
 
     const process = Bun.spawn({
-        cwd: "/home/yuki/",
+        cwd: import.meta.env.HOME,
         cmd: cmd.split(" "),
         stdout: null,
         stderr: null,
@@ -45,7 +45,7 @@ export async function executeCommand (command: string) {
     if (!CommandWhiteList.includes(cmd[0])) return "Unallowed command!";
 
     const process = Bun.spawn({
-        cwd: '/home/yuki',
+        cwd: import.meta.env.HOME,
         cmd: cmd,
         stdout: "pipe",
         stderr: "pipe"

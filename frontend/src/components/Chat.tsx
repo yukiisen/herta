@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Term } from "./Term";
 import { StickyScroll } from "./StickyScroll";
 
+const API_URL = "http://127.0.0.1:8080";
+
 type ImageType = "puppet" | "real";
 
 interface Message {
@@ -11,7 +13,7 @@ interface Message {
 
 function connectWebsocket (): Promise<WebSocket> {
     return new Promise((res, rej) => {
-        const socket = new WebSocket("http://127.0.0.1:8080/chat");
+        const socket = new WebSocket(`${API_URL}/chat`);
 
         socket.addEventListener("open", (_) => res(socket));
         socket.addEventListener("error", (e) => rej(e));
@@ -23,6 +25,7 @@ export function Chat () {
     const [ messages, setMessages ] = useState<Message[]>([]);
     const [ message, setMessage ] = useState('');
     const [ socket, setSocket ] = useState<WebSocket | null>(null);
+    const [ username, setUsername ] = useState('');
 
     function sendMessage () {
         const userMsg: Message = { role: 'user', content: message };
@@ -49,6 +52,8 @@ export function Chat () {
         })
         .catch(console.error);
 
+        fetch(`${API_URL}/username`).then(res => res.text()).then(setUsername);
+
 
         // component destructor
         return () => {
@@ -74,7 +79,7 @@ export function Chat () {
                             if (message.role == 'user') return (
                                 <li key={ index } className={`${liStyles} ml-auto justify-end`}>
                                     <span className={`${shared} bg-primary`}>{ message.content }</span>
-                                    <img src="https://github.com/yukiisen.png" className={`${images} ${message.role == messages[index - 1]?.role? "invisible": "visible"}`}/>
+                                    <img src={`https://github.com/${username}.png`} className={`${images} ${message.role == messages[index - 1]?.role? "invisible": "visible"}`}/>
                                 </li> 
                             )
                             else if (message.role == 'assistant') return (

@@ -4,7 +4,9 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "serve": "bun run index.ts"
+    "dev": "bun run ./src/index.ts",
+    "build": "tsc",
+    "release": "tsc && bun run ./dist/index.js"
   },
   "devDependencies": {
     "@types/bun": "latest"

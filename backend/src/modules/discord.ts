@@ -1,4 +1,4 @@
-import { Client, DMChannel, GatewayIntentBits, Partials, User } from "discord.js";
+import { Client, DMChannel, GatewayIntentBits, Partials } from "discord.js";
 import { config, openai } from "../config";
 
 import { ChatMessage } from "../server";
